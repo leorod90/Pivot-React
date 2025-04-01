@@ -1,9 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
+
 body{
   background: wheat;
+  font-family: "Gravitas One", serif;
+}
+
+.menu-container {
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-txt {
+  color: black;
+  text-align: center;
+  text-decoration: overline underline;
+  font-size: 32px;
+  margin-bottom: 80px;
 }
 
 .card-container {
-  background: white;
+  display:inline;
+  margin-bottom: 20px;
+  /* background: white; */
+}
+
+.pizza-title {
+  margin: 0;
+  padding: 0;
+}
+
+.pizza-description {
+  margin: 0;
+  padding: 0;
 }
 
 .header-container {

@@ -1,10 +1,12 @@
 import { PizzaComponent } from "./PizzaComponent";
+
 // "." means same folder
 // "/" means down a folder
 // ".." means up a folder
 export const Menu = function () {
   return (
-    <div>
+    <div className="menu-container">
+      <h3 className="menu-txt">Menu</h3>
       <PizzaComponent
         title="Cheese Pizza"
         description="Garlic, Cheese, Tomato Sauce"

@@ -8,8 +8,8 @@ export const PizzaComponent = ({
   // JSX basically HTML; REACTS VERSION
   return (
     <div className='card-container'>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <h1 className="pizza-title">{title}</h1>
+      <p className="pizza-description">{description}</p>
       <img
         src={img}
         alt="Girl in a jacket"
