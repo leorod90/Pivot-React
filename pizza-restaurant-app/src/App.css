@@ -1,0 +1,18 @@
+body{
+  background: wheat;
+}
+
+.card-container {
+  background: white;
+}
+
+.header-container {
+  color: brown;
+  text-align: center;
+  text-decoration: overline underline;
+  font-size: 48px;
+}
+
+/* center the text */
+/* make text bigger and change color */
+/* we cant use class, use className */
