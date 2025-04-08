@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
 
 body{
+  padding: 0;
+  margin: 0;
   background: wheat;
   font-family: "Gravitas One", serif;
 }
@@ -25,14 +27,10 @@ body{
   display:inline;
   margin-bottom: 20px;
   /* background: white; */
+  max-width: 500px;
 }
 
-.pizza-title {
-  margin: 0;
-  padding: 0;
-}
-
-.pizza-description {
+.pizza-title, .pizza-description, .pizza-price {
   margin: 0;
   padding: 0;
 }
@@ -42,6 +40,12 @@ body{
   text-align: center;
   text-decoration: overline underline;
   font-size: 48px;
+}
+
+.footer-container {
+  background-color: navy;
+  color: white;
+  padding: 10px 20px;
 }
 
 /* center the text */

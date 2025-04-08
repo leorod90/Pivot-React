@@ -5,7 +5,7 @@
 export function Header() {
   return (
     <div className="header-container">
-      <h1>Leo's Pizza Store</h1>
+      <h1>Leo's Pizza City</h1>
     </div>
   )
 }
