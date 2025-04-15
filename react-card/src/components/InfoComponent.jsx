@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // ALWAYS PUT PROPS
 // const Info = (props) => {}
 export function InfoComponent(props) {

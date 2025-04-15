@@ -48,6 +48,22 @@ body{
   padding: 10px 20px;
 }
 
+.order-btn {
+  /* background-color: brown; */
+  border-radius: 10px;
+  border-width: none;
+  font-size: 22px;
+  color: white;
+  padding: 5px 10px;
+}
+
+.skills-btn {
+  width: 100px;
+  height:50px;
+  border-radius: 20px;
+  background-color: black
+}
+
 /* center the text */
 /* make text bigger and change color */
 /* we cant use class, use className */
