@@ -3,6 +3,13 @@ import React from 'react';
 import CircleComponent from "./CircleComponent";
 // default means its the main/only export
 export default function App() {
+  // this is just javascript
+  const prevHandler = () => {
+    alert("previous");
+  }
+  // create nextHandler and alert next
+  // connect it to Next button
+
   return (
     <div>
       {/* Close */}
@@ -23,7 +30,7 @@ export default function App() {
       <h3>Learn React</h3>
       <p>this is step 0</p>
       {/* Buttons */}
-      <button>Prev</button>
+      <button onClick={prevHandler}>Prev</button>
       <button>Next</button>
     </div>
   )
