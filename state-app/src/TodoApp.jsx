@@ -18,18 +18,43 @@ export default function TodoApp(props) {
   const addTaskHandler = () => {
     // "!" means not
     if (text !== "") {
+      const newItem = {
+        id: Math.random(), // 0 - .9999999999999999
+        text: text,
+        complete: false,
+        createdAt: Date.now() // April 21 2025, 7h 42mn 5s 90ms
+      };
       // add to list          spread
-      const newTask = [text, ...task]; // create a new array with text
+      const newTask = [newItem, ...task]; // create a new array with text
       setTask(newTask);
       // reset the text
       setText("");
     }
   }
-
-  const deleteHandler = (t) => {
+  // parameter
+  const deleteHandler = (id) => {
     // filter out
-    const updatedTasks = task.filter((e) => e !== t);
-    setTask(updatedTasks);
+    // const updatedTasks = task.filter((e) => e.text !== t);
+    // loop through array and create a new array []
+    // [
+    // {id: 0, text: chair},
+    // {id:.1, text: bus}, 
+    // {id:.2, text: car},
+    // {id:.3, text: car},
+    //]
+    // new array = [
+    // {id: 0, text: chair},
+    // {id:.1, text: bus},
+    // {id:.2, text: car}]
+    const newArray = task.filter((object) => {
+      // id = .3, return if NOT .3
+      return object.id !== id
+    });
+    setTask(newArray);
+  }
+
+  const handleCheckBox = () => {
+   
   }
 
   return (
@@ -44,14 +69,21 @@ export default function TodoApp(props) {
         <button onClick={addTaskHandler}>Add Task</button>
       </div>
       <ul>
+        {/* RENDER (display on UI) LIST */}
         {task.map(
-          (t) => {
+          (object) => {
+            console.log(object);
             return (
-              <div>
-                <li>{t}</li>
+              // key: unique id for html
+              <div key={object.id}>
+                <li>{object.text}</li>
+                <input
+                  type="checkbox"
+                  checked={object.complete}
+                  onChange={handleCheckBox} // change this to arrow func and pass id
+                />
                 <button onClick={
-                  // deleteHandler
-                  () => deleteHandler(t)
+                  () => deleteHandler(object.id)
                 }>delete</button>
               </div>
             )
