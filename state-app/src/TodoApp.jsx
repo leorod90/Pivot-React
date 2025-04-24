@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 // const App = () => {}
 // const App = function() {}
 export default function TodoApp(props) {
@@ -53,13 +54,38 @@ export default function TodoApp(props) {
     setTask(newArray);
   }
 
-  const handleCheckBox = () => {
-   
+  const handleCheckBox = (passDownId) => {
+    // const newState = task.map()
+    // const newState = task.map(obj =>  )
+    // [
+    // {id: 0, text: chair},
+    // {id:.1, text: bus}, 
+    // {id:.2, text: car},
+    // {id:.3, text: car},
+    //]
+    const newState = task.map(currentItem =>
+      // if the id we pass is the same as the item id; update
+      currentItem.id === passDownId ?
+        { ...currentItem, complete: !currentItem.complete } :
+        currentItem
+    );
+    // creating a new copy
+    // console.log(task)
+    // const newState = task.map();
+
+    setTask(newState);
   }
+
+  const taskLength = task.length;
+  const taskCompleted = task.filter(t => t.complete).length;
 
   return (
     <div>
-      <h3>To-do App</h3>
+      <h3>To-do App by Leo</h3>
+      {taskLength == 0 ? null : <p>you have {taskLength} items</p>}
+      {taskCompleted == 0 ? null :
+        <p>{taskCompleted} tasks completed</p>
+      }
       <div>
         <input
           value={text}
@@ -71,25 +97,39 @@ export default function TodoApp(props) {
       <ul>
         {/* RENDER (display on UI) LIST */}
         {task.map(
-          (object) => {
-            console.log(object);
-            return (
-              // key: unique id for html
-              <div key={object.id}>
-                <li>{object.text}</li>
-                <input
-                  type="checkbox"
-                  checked={object.complete}
-                  onChange={handleCheckBox} // change this to arrow func and pass id
-                />
-                <button onClick={
-                  () => deleteHandler(object.id)
-                }>delete</button>
-              </div>
-            )
-          }
+          (object) => <TaskItem
+            key={object.id}
+            object={object}
+            handleCheckBox={handleCheckBox}
+            deleteHandler={deleteHandler}
+          />
         )}
       </ul>
+    </div>
+  )
+}
+
+// the component for each item
+function TaskItem(props) {
+  return (
+    // key: unique id for html
+    <div>
+      <input
+        type="checkbox"
+        checked={props.object.complete}
+        // onChange={handleCheckBox}
+        onChange={
+          () => props.handleCheckBox(props.object.id)
+        } // change this to arrow func and pass id
+      />
+      <li
+        style={{
+          textDecoration: props.object.complete ? "line-through" : null,
+        }}
+      >{props.object.text}</li>
+      <button onClick={
+        () => props.deleteHandler(props.object.id)
+      }>delete</button>
     </div>
   )
 }

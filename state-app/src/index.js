@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 // PROJECTS: rename App.jsx to StepApp.jsx
 // import App from './StepApp';
-import App from './TodoApp';
-
+import App from './ToggleApp';
 // import './index.css';
 // import reportWebVitals from './reportWebVitals';
 
