@@ -3,7 +3,7 @@ import { useState } from "react";
 // if we use default NO {}
 import CircleComponent from "./CircleComponent";
 // default means its the main/only export
-export default function App() {
+export default function StepApp() {
   // const [] = useState(); state is a special var that can update screen
   // let step = 1;
   const [step, setStep] = useState(1);

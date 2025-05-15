@@ -1,7 +1,6 @@
 import React from 'react';
 // default means it the only thing being exported
 export default function CircleComponent(props) {
-
   return (
     <div style={{
       border: "2px solid black",

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 // import App from './CardApp';
-import App from './CounterApp';
+// import App from './CounterApp';
+import App from './SimpleApp/SimpleApp';
 
 import reportWebVitals from './reportWebVitals';
 
