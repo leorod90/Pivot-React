@@ -70,7 +70,6 @@ export default function App() {
   }
 
   const deleteHandler = (id) => {
-    // let up = a.filter(a => a.id !== 2);
     const up = contacts.filter(a => a.id !== id);
     setContacts(up);
   }
