@@ -50,10 +50,15 @@ export default function App() {
 
   const addHandler = () => {
     if (name === "" || email === "") {
-      return
+      return alert("both fields must be filled");
     }
-    // old [0,1,2]
-    // new [0,1,2,3]
+    // search text and check/change it
+    const validateEmailRegex = /^\S+@\S+\.\S+$/;
+    const isValidEmail = validateEmailRegex.test(email);
+
+    if (!isValidEmail) {
+      return alert("invalid email");
+    }
 
     setContacts([...contacts, {
       id: Math.random(),
@@ -70,9 +75,10 @@ export default function App() {
     setContacts(up);
   }
 
-  const searchHandler = (event) => {
-    console.log(event.target.value)
-  }
+  const filtered = contacts.filter(item => {
+    return item.name.toLowerCase().includes(searchTxt.toLowerCase()) ||
+      item.email.toLowerCase().includes(searchTxt.toLowerCase())
+  });
 
   return (
     <div className='container'>
@@ -82,8 +88,7 @@ export default function App() {
         placeholder='search'
         type="text"
         value={searchTxt}
-        onChange={searchHandler}
-      // onChange={(event) => setSearchTxt(event.target.value)}
+        onChange={(event) => setSearchTxt(event.target.value)}
       />
       <button className="btn" onClick={sortHandler}>Sort A-Z</button>
       {/* ADD INFO SECTION */}
@@ -98,12 +103,13 @@ export default function App() {
         <input
           type="text"
           value={email}
+          // onChange={emailHandler}
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
       <button className="btn" onClick={addHandler}>Add</button>
       {/* SHOW DATA */}
-      {contacts.map((person, index) => <RenderPerson
+      {filtered.map((person, index) => <RenderPerson
         key={person.id}
         name={person.name}
         email={person.email}
