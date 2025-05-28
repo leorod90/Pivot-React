@@ -73,42 +73,70 @@ export default function App() {
 
   if (enterSite == false) {
     return (
-      <div>
-        <h2>Welcome to my Cat app!</h2>
-        <Lottie animationData={CatLottie} loop={true} />
-        <button onClick={fetchCatFacts}>Get Random Cat Fact</button>
-        <h3>Random cat fact:</h3>
-        <p>{catFact}</p>
-        <button onClick={enterHandler}>Enter</button>
+      <div className="max-w-md px-4 py-6 bg-white shadow-lg rounded mx-auto mt-20 text-center text-black">
+        <h2 className="text-xl font-bold mb-4">
+          Welcome to my Cat app!
+        </h2>
+        <Lottie className="h-[100px] w-[100px] mx-auto mb-4" animationData={CatLottie} loop={true} />
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded mb-4 hover:scale-110 transition-scale duration-300"
+          onClick={fetchCatFacts}
+        >
+          Get Random Cat Fact
+        </button>
+        <h3 className="text-base font-semibold mb-2">
+          Random cat fact:
+        </h3>
+        <p className="mb-4 text-sm">
+          {catFact}
+        </p>
+        <button
+          className="bg-green-500 text-white px-4 py-2 rounded hover:scale-110 transition-scale duration-300"
+          onClick={enterHandler}
+        >
+          Enter
+        </button>
       </div>
+
     )
   }
   return (
-    <div>
-      <h1>Cat App</h1>
-      <p>press the button to get a cat!!</p>
+  <div className="text-center text-black max-w-4xl mx-auto p-4">
+  <h1 className="text-[white] text-2xl font-bold mb-2">Cat App</h1>
+  <p className="text-[white] mb-4">Press the button to get a cat!!</p>
 
+  <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+    {/* First CatImage Card */}
+    <div className="bg-blue-100 p-4 rounded shadow-md">
       <CatImage
         imageOfCat={catImage}
         btnTxt="Meow"
         onClick={fetchData}
+        className="w-full"
       />
-      <div style={{
-        margin: "20px 0px",
-        width: 200,
-        height: 1,
-        backgroundColor: "white"
-      }} />
+    </div>
+
+    {/* Second CatImage Card */}
+    <div className="bg-pink-100 p-4 rounded shadow-md">
       <input
         type="text"
         value={whatCatSays}
         onChange={(e) => setWhatCatSays(e.target.value)}
+        className="mb-2 p-2 border border-gray-300 rounded w-full"
+        placeholder="What should the cat say?"
       />
       <CatImage
         imageOfCat={catImageWithTxt}
         btnTxt="Cat Says"
         onClick={fetchCatText}
+        className="w-full"
       />
     </div>
+  </div>
+
+  {/* Divider */}
+  <div className="my-6 w-48 h-[2px] bg-white mx-auto" />
+</div>
+
   )
 }
