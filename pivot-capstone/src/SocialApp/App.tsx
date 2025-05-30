@@ -4,6 +4,7 @@ import Auth from './pages/Auth';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import CreateProfile from './pages/CreateProfile';
+import URL from './url';
 // import Profile from './pages/Profile';
 // import AuthPage from './pages/AuthPage';
 // import CreateProfile from './pages/CreateProfile';
@@ -16,12 +17,11 @@ function App() {
 
   async function getAllProfiles() {
     try {
-      const response = await fetch(URL + 'profiles');
+      const response = await fetch(URL + '/profiles');
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      // return profiles;
       setProfiles(data);
 
     } catch (error) {

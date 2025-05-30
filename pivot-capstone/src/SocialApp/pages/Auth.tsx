@@ -7,7 +7,7 @@ export default function Auth(props) {
   
   const authFunction = async (auth) => {
     try {
-      const response = await fetch(URL + `auth/${auth}`, {
+      const response = await fetch(URL + `/auth/${auth}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

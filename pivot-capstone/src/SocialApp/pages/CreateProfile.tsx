@@ -22,7 +22,6 @@ export default function CreateProfile(props) {
         }),
       });
 
-
       if (response.ok) {
         alert("Profile created!");
         setName("");
