@@ -9,7 +9,7 @@ export default function AllProfiles(props) {
       {props.profiles.map((profile) => (
         <Link
           key={profile.id}
-          to={`/profile/${profile.id}`}
+          to={`/social/profile/${profile.id}`}
           className="block border border-gray-300 p-4 m-4 rounded hover:scale-105 transition-transform duration-200"
         >
           <h2 className="text-lg font-bold mb-2">{profile.name}</h2>

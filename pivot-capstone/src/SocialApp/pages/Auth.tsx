@@ -4,7 +4,7 @@ import URL from '../url';
 export default function Auth(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const authFunction = async (auth) => {
     try {
       const response = await fetch(URL + `/auth/${auth}`, {
@@ -20,7 +20,7 @@ export default function Auth(props) {
         props.setLoginData(data)
       } else {
         const errorData = await response.json();
-        console.log(errorData)
+        throw new Error(errorData);
       }
     } catch (error) {
       console.error(error);

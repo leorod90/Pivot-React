@@ -1,10 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AllProfiles from './pages/AllProfiles';
 import Auth from './pages/Auth';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import CreateProfile from './pages/CreateProfile';
 import URL from './url';
+import Profile from './pages/Profile';
 // import Profile from './pages/Profile';
 // import AuthPage from './pages/AuthPage';
 // import CreateProfile from './pages/CreateProfile';
@@ -34,33 +35,38 @@ function App() {
     getAllProfiles()
   }, [])
 
-  return (
-    <Router>
-      {loginData?.id ? (
-        <>
-          <Header />
-          <div className="p-4">
-            <Routes>
-              <Route path="/" element={<AllProfiles profiles={profiles} />} />
-              <Route path="/create"
-                element={
-                  <CreateProfile
-                    loginData={loginData}
-                    getAllProfiles={getAllProfiles}
-                    setUserData={setUserData}
-                  />
-                } />
-              {/* <Route path="/profile/:id" element={<ProfileDetail />} /> */}
-              {/* <Route path="*" element={<Navigate to="/" />} /> */}
-            </Routes>
-          </div>
-        </>
-      ) : (
+  return loginData?.id ? (
+    <>
+      <Header />
+      <div className="p-4">
         <Routes>
-          <Route path="*" element={<Auth setLoginData={setLoginData} />} />
+          <Route index element={<AllProfiles profiles={profiles} />} />
+          <Route
+            path="create"
+            element={
+              <CreateProfile
+                loginData={loginData}
+                getAllProfiles={getAllProfiles}
+                setUserData={setProfiles}
+              />
+            }
+          />
+          <Route
+            path="profile/:id"
+            element={
+              <Profile
+                loginData={loginData}
+              />
+            }
+          />
+          <Route path="*" element={<Navigate to="." />} />
         </Routes>
-      )}
-    </Router>
+      </div>
+    </>
+  ) : (
+    <Routes>
+      <Route path="*" element={<Auth setLoginData={setLoginData} />} />
+    </Routes>
   );
 }
 

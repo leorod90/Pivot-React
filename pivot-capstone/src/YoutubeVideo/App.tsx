@@ -4,6 +4,6 @@ import React from 'react'
 
 export default function App() {
   return (
-    <div>rewrere</div>
+    <div>1223</div>
   )
 }
