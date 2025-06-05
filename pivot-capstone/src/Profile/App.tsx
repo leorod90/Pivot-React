@@ -27,6 +27,11 @@ const APPS_ARRAY = [
     name: "Movie App",
     img: "",
   },
+  {
+    route: "social-basic",
+    name: "Social App Basic",
+    img: "",
+  },
   // {
   //   route: "profile",
   //   name: "Profile Viewer",
